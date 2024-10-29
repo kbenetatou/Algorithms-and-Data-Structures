@@ -38,10 +38,10 @@ position_of_void = { #this dictionary will help me find the degrees of the color
 }
 user_number=int(sys.argv[1])
 n=pow(2,user_number)
-ans = [['X']*n for i in range(n)] #arxikopoiw ton ans me 'X'
-if user_number == 1 : #an einai 2x2 den mpainei stin synartisi kai ginetai aytomata.
-        color = green.get('90') #apo to paradeigma pairnw degree = 90
-        for i in range(len(color)): #vazw ston ans to color
+ans = [['X']*n for i in range(n)] #initiate ans with 'X'
+if user_number == 1 : 
+        color = green.get('90') 
+        for i in range(len(color)): 
             for j in range(len(color[i])):
                 if color[i][j] != '':  
                     ans[(n-2)//2 + i][(n-2)//2 + j] = color[i][j]
@@ -85,9 +85,9 @@ def rec(ans,user_number) :
             if 'G' not in x[0] :  
                 color = red.get('270')
             else:
-                position=(helper.index(x[0]),x[0].index('G')) #vlepw pou exw to 'g'-> ekei tha einai to void tou tromino
+                position=(helper.index(x[0]),x[0].index('G')) #look for 'g'-> void of tromino
 
-                color = red.get((position_of_void.get(position))) #to position tou void mou kathorizei tis moires.
+                color = red.get((position_of_void.get(position))) #void's position will show the degrees
         else :
              color = red.get('270')
         for i in range(len(color)):
@@ -122,7 +122,7 @@ def rec(ans,user_number) :
         helper = [row[middle:n] for row in ans[middle:n]]#bottom right quadrant.
         x = [x for x in helper if 'X' in x][0]
 
-        if 'G' not in x : #an den yparxei to G sto quarter mou
+        if 'G' not in x : 
                 color = blue.get('270')
         else :
                 position=(helper.index(x),x.index('G'))
